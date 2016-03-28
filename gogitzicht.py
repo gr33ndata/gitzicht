@@ -7,18 +7,12 @@ from gitzicht import *
 
 def parse_cli():
 
-    '''
-    argparser = ArgumentParser(description='Do you speak London? A library for Natural Language Identification.')
-    argparser.add_argument('--version', action='store_true', help='Show version')
-    argparser.add_argument('--list-langs', action='store_true', help='List supported languages in training data')
-    argparser.add_argument('--unk', choices=['y','n'], default='n', help='Input text to classify')
-    argparser.add_argument('--corpus', default='', help='Specify path to custom training-set')
-    argparser.add_argument('--lang', help='Add training sample for the language specified')
-    argparser.add_argument('input', nargs='*', help='Input text to classify')
-    args = argparser.parse_args()
-    '''
-
     argparser = ArgumentParser(description='Gogitzicht, git log analyzer')
+    argparser.add_argument(
+        '-v', '--version', 
+        action='version', 
+        version='{}, version {}'.format(NAME, VERSION)
+    )
     argparser.add_argument(
         '-d', '--debug', 
         action='store_true', 
@@ -26,7 +20,7 @@ def parse_cli():
     )
     argparser.add_argument(
         '-i', '--input-file', 
-        default='input.txt', 
+        default='input.log', 
         help='Input file for git logs'
     )
     argparser.add_argument(
@@ -74,35 +68,11 @@ def main(args):
 
     commits = parser.get_commits(per_file=True)
 
-    def dim_file_about(commit):
-        filename = commit['files'][0].split('/')[-1]
-        if re.findall('[Aa]uthor',filename):
-            return 'Authorization'
-        if re.findall('[Ee]ntity',filename):
-            return 'Entity'
-        if re.findall('[Mm]ember',filename):
-            return 'Member'
-        if re.findall('[Ss]earch',filename):
-            return 'Search'
-        if re.findall('[Gg]roup',filename):
-            return 'Group'
-        if re.findall('[Uu]ser',filename):
-            return 'User'
-        if re.findall('[Tt]emplate',filename):
-            return 'Template'
-        if re.findall('[Cc]ompetition',filename):
-            return 'Competition'
-        if re.findall('[Cc]omplete',filename):
-            return 'Completion'
-        if re.findall('[Cc]ontact',filename):
-            return 'Contact'
-        if re.findall('[Nn]otif',filename):
-            return 'Notification'
-        return 'Others'
-
     dim1 = getattr(Pivot, args.dim1)
     dim2 = getattr(Pivot, args.dim2)
     metric = getattr(Pivot, args.metric)
+    if args.debug:
+        print 'Pivoting on {}, {} using {}'.format(dim1, dim2, metric)
     pivot = Pivot(dim1, dim2, metric)
     
     #pivot = Pivot(dim_file_about, Pivot.dim_year_month, Pivot.metric_changes)
