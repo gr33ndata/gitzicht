@@ -1,0 +1,6 @@
+# Ignore pyc
+*.pyc
+
+# Ignore bidx files
+input.log
+output.csv
