@@ -50,7 +50,9 @@ Sometimes, you may need to do you analysis based on the files edited in each com
 
     commits = parser.get_commits(per_file=True)
 
-**CommitParser:** Most likely, you will not need to use this yourself. It is used by LogParser to parse each commit. Some thing for the ** Commits ** class, forget about it for now.
+
+**CommitParser:** Most likely, you will not need to use this yourself. It is used by LogParser to parse each commit. Some thing for the *Commits* class, forget about it for now.
+
 
 Running Tests
 --------------
