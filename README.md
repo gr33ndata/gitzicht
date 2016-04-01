@@ -40,7 +40,7 @@ There are 5 main classes in 5 files that you can use:
     * pivot.py
     * exporter.py
 
-*LogParser:* This one is used to read your log file, parse it, and return a list of all parsed commits there. Here is how to use it:
+** LogParser: ** This one is used to read your log file, parse it, and return a list of all parsed commits there. Here is how to use it:
 
     from gitzicht import LogParser
     parser = LogParser('your-file-name.log')
@@ -49,7 +49,8 @@ There are 5 main classes in 5 files that you can use:
 Sometimes, you may need to do you analysis based on the files edited in each commit. In that case, setting `per_file=True` in `get_commits()` means that for a commit with multiple files edited, it will be returned as if it is multiple commits, each with one of the edited files:
 
     commits = parser.get_commits(per_file=True)
-    
+
+** CommitParser: ** Most likely, you will not need to use this yourself. It is used by LogParser to parse each commit. Some thing for the ** Commits ** class, forget about it for now.
 
 Running Tests
 --------------
