@@ -24,18 +24,43 @@ This library works on analyzing git logs. We use the following format:
 
     git log --numstat --no-merges > input.log
 
-Then you can set gitzicht to use `input.log`. 
+Then you can set gitzicht to use you newly created file, `input.log`. 
+
+Using as CLI
+-------------
+
+Using in your code
+-------------------
+
+There are 5 main classes in 5 files that you can use:
+
+    * logparser.py
+    * commitparser.py
+    * transformations.py
+    * pivot.py
+    * exporter.py
+
+*LogParser:* This one is used to read your log file, parse it, and return a list of all parsed commits there. Here is how to use it:
+
+    from gitzicht import LogParser
+    parser = LogParser('your-file-name.log')
+    commits = parser.get_commits()
+
+Sometimes, you may need to do you analysis based on the files edited in each commit. In that case, setting `per_file=True` in `get_commits()` means that for a commit with multiple files edited, it will be returned as if it is multiple commits, each with one of the edited files:
+
+    commits = parser.get_commits(per_file=True)
+    
 
 Running Tests
 --------------
 
-If you are willing to contribute in developing _gitzicht_, all tests are in the tests folder. We use Python `unittest` here. 
+If you are willing to contribute to _gitzicht_ development, all tests are in the `/tests` folder. We use Python `unittest` here. 
 
 To run all tests:
 
     python -m unittest discover
 
-To run specific test:
+And to run a specific test:
 
     python -m unittest tests.test_logparser
 
