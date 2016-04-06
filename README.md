@@ -100,3 +100,9 @@ And to run a specific test:
 
     python -m unittest tests.test_logparser
 
+
+Contacts
+--------
+ 
++ Name: Tarek Amr [homepage](http://tarekamr.appspot.com/)
++ Twitter: [@gr33ndata](https://twitter.com/gr33ndata)
