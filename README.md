@@ -104,5 +104,5 @@ And to run a specific test:
 Contacts
 --------
  
-+ Name: Tarek Amr [homepage](http://tarekamr.appspot.com/)
++ Name: [Tarek Amr](http://tarekamr.appspot.com/)
 + Twitter: [@gr33ndata](https://twitter.com/gr33ndata)
