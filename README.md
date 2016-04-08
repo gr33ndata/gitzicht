@@ -87,6 +87,8 @@ To have your output as a Python list of lists:
 
 Gitzicht comes with some predefined callback functions that you can use. They are defined as class methods of the Pivot class. To list available callback functions for extracting dimensions use `Pivot.list_dims()`, and for available metrics use `Pivot.list_metrics()`.
 
+**Transformations:** Currently, the only transformations you can apply on the matrices produced by the Pivot is to filter out some dimensions based on regular expressions.
+
 Running Tests
 --------------
 
