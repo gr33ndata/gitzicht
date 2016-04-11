@@ -32,8 +32,9 @@ def parse_cli():
     pivot_argparser = argparser.add_argument_group('Pivot')
     pivot_argparser.add_argument(
         '-p', '--pivot', 
+        default=True, 
         action='store_true', 
-        help='Pivot on 2 dimensions using metric'
+        help='Pivot on 2 dimensions using metric [default: True]'
     )
     pivot_argparser.add_argument(
         '--dim1', 
@@ -71,8 +72,10 @@ def main(args):
     dim1 = getattr(Pivot, args.dim1)
     dim2 = getattr(Pivot, args.dim2)
     metric = getattr(Pivot, args.metric)
+
     if args.debug:
         print 'Pivoting on {}, {} using {}'.format(dim1, dim2, metric)
+
     pivot = Pivot(dim1, dim2, metric)
     
     #pivot = Pivot(dim_file_about, Pivot.dim_year_month, Pivot.metric_changes)
