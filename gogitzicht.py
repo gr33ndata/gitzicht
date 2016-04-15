@@ -18,15 +18,24 @@ def parse_cli():
         action='store_true', 
         help='Print debug messages'
     )
-    argparser.add_argument(
+    
+
+    parse_argparser = argparser.add_argument_group('Parser')
+    parse_argparser.add_argument(
         '-i', '--input-file', 
         default='input.log', 
         help='Input file for git logs'
     )
-    argparser.add_argument(
+    parse_argparser.add_argument(
         '-o', '--output-file', 
         default='output.csv', 
         help='Output file for git logs'
+    )
+    parse_argparser.add_argument(
+        '--per-file', 
+        default=True, 
+        action='store_true', 
+        help='Convert commits with multiple file changes into multiple commits.'
     )
 
     pivot_argparser = argparser.add_argument_group('Pivot')
@@ -67,7 +76,7 @@ def main(args):
     if args.debug:
         parser.print_debug_message()
 
-    commits = parser.get_commits(per_file=True)
+    commits = parser.get_commits(per_file=args.per_file)
 
     dim1 = getattr(Pivot, args.dim1)
     dim2 = getattr(Pivot, args.dim2)
