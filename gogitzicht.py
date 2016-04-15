@@ -78,12 +78,7 @@ def main(args):
 
     pivot = Pivot(dim1, dim2, metric)
     
-    #pivot = Pivot(dim_file_about, Pivot.dim_year_month, Pivot.metric_changes)
     pivoted = pivot.calculate(commits)
-
-    #pivoted = Transformations.dim1_filter_regex(pivoted, regex='.*\.java')
-    #pivoted = Transformations.dim2_filter_regex(pivoted, regex='201[456].*')
-    #pivoted = Transformations.dim1_top_n(pivoted, n=10)
 
     exporter = Exporter(pivoted)
     exporter.to_csv(output_filename,'date')
