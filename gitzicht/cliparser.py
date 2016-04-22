@@ -21,12 +21,12 @@ def parse_cli():
     parse_argparser = argparser.add_argument_group('Parser')
     parse_argparser.add_argument(
         '-i', '--input-file', 
-        default='input.log', 
+        default='STDIN', 
         help='Input file for git logs'
     )
     parse_argparser.add_argument(
         '-o', '--output-file', 
-        default='output.csv', 
+        default='STDOUT', 
         help='Output file for git logs'
     )
     parse_argparser.add_argument(
