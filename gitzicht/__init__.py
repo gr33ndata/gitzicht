@@ -7,3 +7,4 @@ from commitparser import CommitParser
 from pivot import Pivot
 from transformations import Transformations
 from exporter import Exporter
+from cliparser import parse_cli
