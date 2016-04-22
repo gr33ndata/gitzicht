@@ -29,6 +29,12 @@ Then you can set gitzicht to use you newly created file, `input.log`.
 Using as CLI
 -------------
 
+Basically, you can:
+
+    python gogitzicht.py -i input.log -o output.csv
+
+This uses the default pivots to analyze logs in `input.log` and dump output CSV data into `output.csv`. Omitting output parameter dumps data to your screen. Additionally, you can omit input parameter and use CLI pipe to get log from `git log --numstat --no-merges` into `gogitzicht.py` right away. 
+
 Using in your code
 -------------------
 
