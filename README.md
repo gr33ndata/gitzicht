@@ -15,7 +15,7 @@ Or run the CLI tool, `gogitzicht.py` as follows:
     python gogitzicht.py --help
 
 
-P.S. Still under development
+_P.S._ Still under development
 
 Exporting git logs
 -------------------
